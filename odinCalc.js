@@ -2,8 +2,6 @@ function add(n1, n2) {
   return n1 + n2;
 }
 
-console.log(add(2, 3));
-
 function subtract(n1, n2) {
   return n1 - n2;
 }
@@ -29,3 +27,8 @@ function operate(operator, n1, n2) {
     return "Try again";
   }
 }
+
+
+button.document.addEvenListener('click', fucntion(){
+    
+})
