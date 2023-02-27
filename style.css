@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+}
+
+section {
+  font-family: "Oswald", sans-serif;
+  background-color: black;
+  width: 35%;
+  border-radius: 20px;
+  text-align: center;
+  margin: 100px auto;
+  padding: 20px 20px 50px;
+}
+
+.output {
+  width: 70%;
+  height: 70px;
+  background-color: white;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  text-align: right;
+  padding-top: 5px;
+  padding-right: 6px;
+}
+
+.output span {
+  font-size: 40px;
+}
+
+.numbers {
+  width: 95%;
+  margin: 0 auto;
+}
+p {
+  background-color: white;
+  width: 70px;
+  height: 70px;
+  color: black;
+  border-radius: 50%;
+  text-decoration: none;
+  text-align: center;
+}
+
+.row {
+  display: flex;
+  /* gap: 5px; */
+  justify-content: center;
+}
+
+.row p {
+  margin: 3px;
+  padding-top: 15px;
+  font-size: 25px;
+  font-weight: 600;
+  cursor: pointer;
+}
