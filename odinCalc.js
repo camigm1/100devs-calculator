@@ -1,3 +1,6 @@
+const button = document.getElementById("clear");
+const numberOutput = document.querySelector(".numberOutput");
+
 function add(n1, n2) {
   return n1 + n2;
 }
@@ -28,7 +31,6 @@ function operate(operator, n1, n2) {
   }
 }
 
-
-button.document.addEvenListener('click', fucntion(){
-    
-})
+button.document.addEvenListener("click", function () {
+  numberOutput.innerHTML = "";
+});
