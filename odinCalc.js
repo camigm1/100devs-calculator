@@ -1,9 +1,10 @@
 const button = document.getElementById("clear");
 const numberOutput = document.querySelector(".numberOutput");
+const number = document.querySelector("p");
 
-function add(n1, n2) {
+let displayNumbers = function add(n1, n2) {
   return n1 + n2;
-}
+};
 
 function subtract(n1, n2) {
   return n1 - n2;
@@ -31,6 +32,11 @@ function operate(operator, n1, n2) {
   }
 }
 
-button.document.addEvenListener("click", function () {
-  numberOutput.innerHTML = "";
+// button.document.addEvenListener("click", function () {
+//   numberOutput.innerHTML = "";
+// });
+
+number.addEventListener("click", function () {
+  let numberOne = number.innerHTML;
+  console.log(numberOne);
 });
