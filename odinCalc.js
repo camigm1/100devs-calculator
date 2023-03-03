@@ -1,10 +1,23 @@
-const button = document.getElementById("clear");
+const buttonClear = document.getElementById("clear");
+const buttons = document.querySelectorAll("button");
 const numberOutput = document.querySelector(".numberOutput");
-const number = document.querySelector("p");
 
-let displayNumbers = function add(n1, n2) {
+const numOne = [];
+const actualNumber = numOne.join();
+
+console.log(actualNumber);
+buttons.forEach((elem) => {
+  elem.addEventListener("click", function () {
+    const value = elem.innerHTML;
+    numberOutput.innerHTML = value;
+    numOne.push(value);
+    console.log(value);
+  });
+});
+
+function add(n1, n2) {
   return n1 + n2;
-};
+}
 
 function subtract(n1, n2) {
   return n1 - n2;
@@ -32,11 +45,6 @@ function operate(operator, n1, n2) {
   }
 }
 
-// button.document.addEvenListener("click", function () {
-//   numberOutput.innerHTML = "";
-// });
-
-number.addEventListener("click", function () {
-  let numberOne = number.innerHTML;
-  console.log(numberOne);
+buttonClear.addEventListener("click", function () {
+  numberOutput.innerHTML = 0;
 });
