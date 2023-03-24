@@ -2,16 +2,39 @@ const buttonClear = document.getElementById("clear");
 const buttons = document.querySelectorAll("button");
 const numberOutput = document.querySelector(".numberOutput");
 
-const numOne = [];
-const actualNumber = numOne.join();
+let value = "";
+let operator = "";
+let arrayOne = [];
+let arrayTwo = [];
 
-console.log(actualNumber);
 buttons.forEach((elem) => {
-  elem.addEventListener("click", function () {
-    const value = elem.innerHTML;
-    numberOutput.innerHTML = value;
-    numOne.push(value);
-    console.log(value);
+  elem.addEventListener("click", function (e) {
+    value = e.target.innerHTML;
+    if (value === "/" || value === "*" || value === "-" || value === "+") {
+      operator = value;
+      numberOutput.innerHTML = "";
+    } else if (value === "=") {
+      let numberOne = Number(arrayOne.join(""));
+      console.log(numberOne);
+      let numberTwo = Number(arrayTwo.join(""));
+      console.log(numberTwo);
+      const result = operate(operator, numberOne, numberTwo);
+      numberOutput.innerHTML = result;
+    } else if (operator) {
+      arrayTwo.push(value);
+      numberOutput.innerHTML += value;
+    } else {
+      numberOutput.innerHTML += value;
+      arrayOne.push(value);
+    }
+  });
+
+  buttonClear.addEventListener("click", function () {
+    numberOutput.innerHTML = "";
+    value = "";
+    arrayOne = [];
+    arrayTwo = [];
+    operator = "";
   });
 });
 
@@ -44,7 +67,3 @@ function operate(operator, n1, n2) {
     return "Try again";
   }
 }
-
-buttonClear.addEventListener("click", function () {
-  numberOutput.innerHTML = 0;
-});
