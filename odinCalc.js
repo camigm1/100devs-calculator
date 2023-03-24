@@ -3,22 +3,50 @@ const buttons = document.querySelectorAll("button");
 const numberOutput = document.querySelector(".numberOutput");
 
 let value = "";
+
 let operator = "";
 let arrayOne = [];
 let arrayTwo = [];
+let resultArray = [];
+let result = "";
+let numberOne = "";
+let numberTwo = "";
 
 buttons.forEach((elem) => {
   elem.addEventListener("click", function (e) {
     value = e.target.innerHTML;
-    if (value === "/" || value === "*" || value === "-" || value === "+") {
+    if (result && operator) {
+      if (value === "/" || value === "*" || value === "-" || value === "+") {
+        operator = value;
+        arrayOne = [];
+        numberOutput.innerHTML = operator;
+        console.log(operator);
+      } else if (value === "=") {
+        numberOne = Number(arrayOne.join(""));
+        console.log(numberOne);
+        console.log(operator);
+        result = operate(operator, result, numberOne);
+        numberOutput.innerHTML = result;
+      } else {
+        numberOutput.innerHTML += value;
+        arrayOne.push(value);
+      }
+    } else if (
+      value === "/" ||
+      value === "*" ||
+      value === "-" ||
+      value === "+"
+    ) {
       operator = value;
-      numberOutput.innerHTML = "";
+      numberOutput.innerHTML = operator;
     } else if (value === "=") {
-      let numberOne = Number(arrayOne.join(""));
+      numberOne = Number(arrayOne.join(""));
       console.log(numberOne);
-      let numberTwo = Number(arrayTwo.join(""));
+      numberTwo = Number(arrayTwo.join(""));
       console.log(numberTwo);
-      const result = operate(operator, numberOne, numberTwo);
+      console.log(operator);
+      result = operate(operator, numberOne, numberTwo);
+
       numberOutput.innerHTML = result;
     } else if (operator) {
       arrayTwo.push(value);
@@ -32,9 +60,11 @@ buttons.forEach((elem) => {
   buttonClear.addEventListener("click", function () {
     numberOutput.innerHTML = "";
     value = "";
+    numberOutput.innerHTML = value;
     arrayOne = [];
     arrayTwo = [];
     operator = "";
+    result = "";
   });
 });
 
